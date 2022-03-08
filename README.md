@@ -1,8 +1,8 @@
-# vue-i18n-service
+# vue3-i18n-service
 
 The translation team (not developers) wants **a** file with all the keys to translate. But I love to use translations in **Single File Components**.
 
-And I found a solution to make everyone happy: `vue-i18n-service export|import`
+And I found a solution to make everyone happy: `vue3-i18n-service export|import`
 
 Vue I18n Service makes to manage SFC translations easier in a file. It collects all the `<i18n>` definitions in Single File Components and collects them into a file.
 
@@ -25,7 +25,7 @@ Vue I18n Service makes to manage SFC translations easier in a file. It collects 
 </i18n>
 ```
 
-⬇️`npx vue-i18n-service export > translations.json`
+⬇️`npx vue3-i18n-service export > translations.json`
 ```json
 {
   "src/components/Hello.vue": {
@@ -60,7 +60,7 @@ Open [https://edisdev.github.io/vue-i18n-translator/](https://edisdev.github.io/
 
 ![vue-i18n-translator](https://pbs.twimg.com/media/DnDZ5yYX0AAzJyN.png)
 
-⬇️`npx vue-i18n-service import < translations.edited.json`
+⬇️`npx vue3-i18n-service import < translations.edited.json`
 ```
 updating file src/components/Hello.vue
 ```
@@ -88,7 +88,7 @@ And all is OK. Doesn't matter how many files you have, it simply distributes wit
 This will generate a `translations.json` file (or whatever you named).
 
 ```bash
-npx vue-i18n-service export > translations.json
+npx vue3-i18n-service export > translations.json
 ```
 
 It has a simple format:
@@ -128,10 +128,10 @@ Here is an example:
 
 ### --dir
 
-By default, `vue-i18n-service` looks for SFCs in the `src/` directory, if your components are in another directory, specify it by passing the `--dir` flag:
+By default, `vue3-i18n-service` looks for SFCs in the `src/` directory, if your components are in another directory, specify it by passing the `--dir` flag:
 
 ```bash
-npx vue-i18n-service export --dir=client/ > translations.json
+npx vue3-i18n-service export --dir=client/ > translations.json
 ```
 
 ## Importing `translations.json` file to the SFCs
@@ -139,7 +139,7 @@ npx vue-i18n-service export --dir=client/ > translations.json
 After bulk changing files, you can distribute import all the files calling `import` command.
 
 ```bash
-npx vue-i18n-service import < translations.json
+npx vue3-i18n-service import < translations.json
 ```
 
 This will update `.vue` files and replace them with changes.
@@ -148,7 +148,7 @@ This will update `.vue` files and replace them with changes.
   You can creating a new locale by copying another locale `create` command
 
   ```bash
-  npx vue-i18n-service create 'newlocale' 'extendedLocale'
+  npx vue3-i18n-service create 'newlocale' 'extendedLocale'
   ```
 
   <img src="./creatingExample.gif"/>
@@ -182,6 +182,14 @@ This will update `.vue` files and replace them with changes.
       </a>
       <br />
       <sub><b>Paul Gascou-Vaillancourt</b></sub>
+    </td>
+    <td align="center">
+      <a href="https://github.com/axsann" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/7417697?v=4"
+          width="100px;" alt="Kanta Asada" />
+      </a>
+      <br />
+      <sub><b>Kanta Asada</b></sub>
     </td>
   </tr>
 </table>

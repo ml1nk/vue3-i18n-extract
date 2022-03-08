@@ -2,7 +2,7 @@
 const glob = require('glob')
 const fs = require('fs')
 const myjson = require('myjson-api')
-const compiler = require('vue-template-compiler')
+const compiler = require('vue/compiler-sfc')
 const argv = require('yargs').argv
 
 function replaceBetween (str, start, end, what) {
@@ -13,13 +13,15 @@ function readData (imported) {
   const data = JSON.parse(imported)
   Object.keys(data).forEach(file => {
     const sfcContent = fs.readFileSync(file).toString()
-    const componentAst = compiler.parseComponent(sfcContent)
-    componentAst.customBlocks.forEach(i18n => {
-      console.log(`updating file ${file}`)
-      fs.writeFileSync(
-        file,
-        replaceBetween(sfcContent, i18n.start, i18n.end, `\n${JSON.stringify(data[file], null, 2)}\n`)
-      )
+    const componentAst = compiler.parse(sfcContent)
+    componentAst.descriptor.customBlocks
+      .filter(block => block.type === 'i18n')
+      .forEach(i18n => {
+        console.log(`updating file ${file}`)
+        fs.writeFileSync(
+          file,
+          replaceBetween(sfcContent, i18n.loc.start.offset, i18n.loc.end.offset, `\n${JSON.stringify(data[file], null, 2)}\n`)
+        )
     })
   })
 }
@@ -28,8 +30,8 @@ function createLocale (newLocale, extendedLocale) {
   glob('src/**/*.vue', (_, files) => {
     const out = {}
     files.forEach(file => {
-      const componentAst = compiler.parseComponent(fs.readFileSync(file).toString())
-      componentAst.customBlocks
+      const componentAst = compiler.parse(fs.readFileSync(file).toString())
+      componentAst.descriptor.customBlocks
         .filter(block => block.type === 'i18n')
         .forEach(block => {
           let content = JSON.parse(block.content)
@@ -81,8 +83,8 @@ function runExport (fn) {
   glob(`${dir}**/*.vue`, (_, files) => {
     const out = {}
     files.forEach(file => {
-      const componentAst = compiler.parseComponent(fs.readFileSync(file).toString())
-      componentAst.customBlocks
+      const componentAst = compiler.parse(fs.readFileSync(file).toString())
+      componentAst.descriptor.customBlocks
         .filter(block => block.type === 'i18n')
         .forEach(block => {
           out[file] = JSON.parse(block.content)
@@ -113,14 +115,14 @@ switch (process.argv[2]) {
     })
     break
   default:
-    console.log('vue-i18n-services v' + require('../package.json').version)
+    console.log('vue3-i18n-service v' + require('../package.json').version)
     console.log('commands:')
-    console.log('   vue-i18n-services export > translations.json')
-    console.log('     Collects all the <i18n> tags in SCF .vue files and exports them in a file\n')
+    console.log('   vue3-i18n-service export > translations.json')
+    console.log('     Collects all the <i18n> tags in SFC .vue files and exports them in a file\n')
     console.log('     Flags:')
     console.log('         --dir=src/ Specify the directory where SFCs are located, defaults to src/\n')
-    console.log('   vue-i18n-services import < translations.json')
+    console.log('   vue3-i18n-service import < translations.json')
     console.log('     Distributes all the changes on translations.json file to the related components\n')
-    console.log('   vue-i18n-services translate')
+    console.log('   vue3-i18n-service translate')
     console.log('     Opens translation page to translate your UI.\n')
 }
