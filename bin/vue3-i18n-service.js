@@ -48,19 +48,9 @@ function createLocale (newLocale, extendedLocale) {
 function runCreate() {
   process.stdin.setEncoding('utf8')
 
-  let argv = process.argv
-  switch (argv.length) {
-    case 3:
-      console.log('Please enter the new locale code')
-      break
-    case 4:
-      console.log('Please enter the extended locale code')
-      break
-    default:
-      let newLocale =  argv.new
-      let extendedLocale = argv.extend
-      createLocale(newLocale, extendedLocale)
-  }
+  let newLocale =  argv.new
+  let extendedLocale = argv.extend
+  createLocale(newLocale, extendedLocale)
 }
 
 function runImport () {

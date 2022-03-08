@@ -148,7 +148,7 @@ This will update `.vue` files and replace them with changes.
   You can creating a new locale by copying another locale `create` command
 
   ```bash
-  npx vue3-i18n-service create -new='newlocale' -extend='extendedLocale'
+  npx vue3-i18n-service create --new=newlocale --extend=extendedLocale
   ```
 
   <img src="./creatingExample.gif"/>
