@@ -57,8 +57,8 @@ function runCreate() {
       console.log('Please enter the extended locale code')
       break
     default:
-      let newLocale =  argv[3]
-      let extendedLocale = argv[4]
+      let newLocale =  argv.new
+      let extendedLocale = argv.extend
       createLocale(newLocale, extendedLocale)
   }
 }
