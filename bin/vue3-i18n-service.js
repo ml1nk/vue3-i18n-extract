@@ -27,7 +27,8 @@ function readData (imported) {
 }
 
 function createLocale (newLocale, extendedLocale) {
-  glob('src/**/*.vue', (_, files) => {
+  const dir = argv.dir || 'src/'
+  glob(`${dir}**/*.vue`, (_, files) => {
     const out = {}
     files.forEach(file => {
       const componentAst = compiler.parse(fs.readFileSync(file).toString())
