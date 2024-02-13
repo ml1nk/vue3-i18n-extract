@@ -54,6 +54,9 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
+# pnpm lock file
+.pnpm-lock.yaml
+
 # dotenv environment variables file
 .env
 

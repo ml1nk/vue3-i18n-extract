@@ -1,21 +1,22 @@
 {
-  "name": "vue3-i18n-service",
-  "version": "0.2.4",
+  "name": "vue3-i18n-extract",
+  "type": "module",
+  "version": "1.0.0",
   "description": "Collects SFC i18n's and makes them translatable with one file",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "vue3-i18n-service": "bin/vue3-i18n-service.js"
+    "vue3-i18n-extract": "bin/vue3-i18n-extract.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/axsann/vue3-i18n-service.git"
+    "url": "git+https://github.com/ml1nk/vue3-i18n-extract.git"
   },
   "keywords": [
     "vue",
     "i18n",
+    "sfc",
     "export",
     "import"
   ],
@@ -24,17 +25,18 @@
     "Fatih Kadir Akin (Original Author) <fatihkadirakin@gmail.com>",
     "Hatice Edis <hedis285@gmail.com>",
     "Paul Gascou-Vaillancourt <paul@paulgv.com>",
-    "Kanta Asada (Vue 3 version Author)"
+    "Kanta Asada (Vue 3 version Author)",
+    "Marcel Link <marcel.link@t-online.de>"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/axsann/vue3-i18n-service/issues"
+    "url": "https://github.com/ml1nk/vue3-i18n-extract/issues"
   },
-  "homepage": "https://github.com/axsann/vue3-i18n-service#readme",
+  "homepage": "https://github.com/ml1nk/vue3-i18n-extract#readme",
   "dependencies": {
-    "glob": "^7.1.3",
-    "myjson-api": "^1.0.1",
-    "vue": "^3.2.31",
-    "yargs": "^12.0.2"
+    "glob": "^10.3.10",
+    "js-yaml": "^4.1.0",
+    "vue": "^3.4.18",
+    "yargs": "^17.7.2"
   }
 }
