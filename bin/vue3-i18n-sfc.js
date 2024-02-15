@@ -76,13 +76,13 @@ switch (process.argv[2]) {
     await runExport()
     break
   default:
-    console.log(`vue3-i18n-extract`)
+    console.log(`vue3-i18n-sfc`)
     console.log('commands:')
-    console.log('   vue3-i18n-extract export > translations.json')
+    console.log('   vue3-i18n-sfc export > translations.json')
     console.log('     Collects all the <i18n> tags in SFC .vue files and exports them in a file\n')
     console.log('     Flags:')
     console.log('         --dir=src/ Specify the directory where SFCs are located, defaults to src/\n')
     console.log('         --yaml Import from yaml or export as yaml\n')
-    console.log('   vue3-i18n-extract import < translations.json')
+    console.log('   vue3-i18n-sfc import < translations.json')
     console.log('     Distributes all the changes on translations.json file to the related components\n')
 }

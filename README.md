@@ -1,8 +1,8 @@
-# vue3-i18n-extract
+# vue3-i18n-sfc
 
 The translation team (not developers) wants **a** file with all the keys to translate. But I love to use translations in **Single File Components**.
 
-And I found a solution to make everyone happy: `vue3-i18n-extract export|import`
+And I found a solution to make everyone happy: `vue3-i18n-sfc export|import`
 
 Vue I18n Service makes to manage SFC translations easier in a file. It collects all the `<i18n>` definitions in Single File Components and collects them into a file.
 
@@ -25,7 +25,7 @@ Vue I18n Service makes to manage SFC translations easier in a file. It collects 
 </i18n>
 ```
 
-⬇️`npx vue3-i18n-extract export > translations.json`
+⬇️`npx vue3-i18n-sfc export > translations.json`
 ```json
 {
   "src/components/Hello.vue": {
@@ -60,7 +60,7 @@ Open [https://edisdev.github.io/vue-i18n-translator/](https://edisdev.github.io/
 
 ![vue-i18n-translator](https://pbs.twimg.com/media/DnDZ5yYX0AAzJyN.png)
 
-⬇️`npx vue3-i18n-extract import < translations.edited.json`
+⬇️`npx vue3-i18n-sfc import < translations.edited.json`
 ```
 updating file src/components/Hello.vue
 ```
@@ -88,7 +88,7 @@ And all is OK. Doesn't matter how many files you have, it simply distributes wit
 This will generate a `translations.json` file (or whatever you named).
 
 ```bash
-npx vue3-i18n-extract export > translations.json
+npx vue3-i18n-sfc export > translations.json
 ```
 
 It has a simple format:
@@ -128,18 +128,18 @@ Here is an example:
 
 ### --dir
 
-By default, `vue3-i18n-extract` looks for SFCs in the `src/` directory, if your components are in another directory, specify it by passing the `--dir` flag:
+By default, `vue3-i18n-sfc` looks for SFCs in the `src/` directory, if your components are in another directory, specify it by passing the `--dir` flag:
 
 ```bash
-npx vue3-i18n-extract export --dir=client/ > translations.json
+npx vue3-i18n-sfc export --dir=client/ > translations.json
 ```
 
 ### --yaml
 
-By default, `vue3-i18n-extract` exports and imports files as json, if you want to use yaml, specify it by passing the `--yaml` flag:
+By default, `vue3-i18n-sfc` exports and imports files as json, if you want to use yaml, specify it by passing the `--yaml` flag:
 
 ```bash
-npx vue3-i18n-extract export --yaml > translations.yaml
+npx vue3-i18n-sfc export --yaml > translations.yaml
 ```
 
 ## Importing `translations.json` file to the SFCs
@@ -147,7 +147,7 @@ npx vue3-i18n-extract export --yaml > translations.yaml
 After bulk changing files, you can distribute import all the files calling `import` command.
 
 ```bash
-npx vue3-i18n-extract import < translations.json
+npx vue3-i18n-sfc import < translations.json
 ```
 
 This will update `.vue` files and replace them with changes.

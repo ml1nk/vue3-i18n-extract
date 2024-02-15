@@ -1,5 +1,5 @@
 {
-  "name": "vue3-i18n-extract",
+  "name": "vue3-i18n-sfc",
   "type": "module",
   "version": "1.0.0",
   "description": "Collects SFC i18n's and makes them translatable with one file",
@@ -7,11 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "vue3-i18n-extract": "bin/vue3-i18n-extract.js"
+    "vue3-i18n-sfc": "bin/vue3-i18n-sfc.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ml1nk/vue3-i18n-extract.git"
+    "url": "git+https://github.com/ml1nk/vue3-i18n-sfc.git"
   },
   "keywords": [
     "vue",
@@ -30,9 +30,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ml1nk/vue3-i18n-extract/issues"
+    "url": "https://github.com/ml1nk/vue3-i18n-sfc/issues"
   },
-  "homepage": "https://github.com/ml1nk/vue3-i18n-extract#readme",
+  "homepage": "https://github.com/ml1nk/vue3-i18n-sfc#readme",
   "dependencies": {
     "glob": "^10.3.10",
     "js-yaml": "^4.1.0",
