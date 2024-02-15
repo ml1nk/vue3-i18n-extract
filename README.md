@@ -152,16 +152,6 @@ npx vue3-i18n-extract import < translations.json
 
 This will update `.vue` files and replace them with changes.
 
-## Creating new locale from other locale
-  You can creating a new locale by copying another locale `create` command
-
-  ```bash
-  npx vue3-i18n-extract create --new=newlocale --extend=extendedLocale
-  ```
-
-  <img src="./creatingExample.gif"/>
-
-
 ## Contributors
 
 <table>
